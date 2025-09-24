@@ -63,4 +63,34 @@ export const getAllCompany = async () => {
   return response.data;
 };
 
+export interface Manager {
+  id: number;
+  email: string;
+  phone_number: string;
+  job_title: string;
+  organization_id: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface ManagersResponse {
+  data: Manager[];
+  total: number;
+  page: number;
+  limit: number;
+  totalPages: number;
+}
+
+export const getManagers = async (organizationId: number, page: number = 1, limit: number = 10, search: string = ''): Promise<ManagersResponse> => {
+  const response = await api.get('/op-manager/getAllOPManagers', {
+    params: {
+      organization_id: organizationId,
+      page,
+      limit,
+      search: search || undefined
+    }
+  });
+  return response.data;
+};
+
 export default api;
