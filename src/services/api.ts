@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { type AuthResponse } from '../types';
 
-const API_URL = 'http://localhost:3000/api/v1';
+const API_URL = 'https://dev.preventixai.com/api/v1';
 
 const api = axios.create({
   baseURL: API_URL,
@@ -44,18 +44,22 @@ export const addCompany = async (companyData: {
 export const addManager = async (managerData: {
   email: string;
   phone_number: string;
-  first_name: string;
-  last_name: string;
   password: string;
-  gender: string;
-  dob: string;
+  organization_id: string | number;
   job_title: string;
-  address: string;
-  pincode: string;
-  organization_id: number;
-  managed_by: number;
 }) => {
-  const response = await api.post('/admin/addManager', managerData);
+  const response = await api.post('/admin/createOpManager', {
+    email: managerData.email,
+    phone_number: managerData.phone_number,
+    password: managerData.password,
+    organization_id: Number(managerData.organization_id),
+    job_title: managerData.job_title
+  });
+  return response.data;
+};
+
+export const getAllCompany = async () => {
+  const response = await api.get('/admin/getAllCompany');
   return response.data;
 };
 

@@ -60,7 +60,7 @@ const Dashboard = () => {
               </div>
               <h3 className="stat-title">Total Companies</h3>
             </div>
-            <p className="stat-value">12</p>
+            <p className="stat-value">--</p>
           </motion.div>
 
           <motion.div 
@@ -76,7 +76,7 @@ const Dashboard = () => {
               </div>
               <h3 className="stat-title">Total Managers</h3>
             </div>
-            <p className="stat-value">45</p>
+            <p className="stat-value">--</p>
           </motion.div>
 
           <motion.div 
@@ -92,7 +92,7 @@ const Dashboard = () => {
               </div>
               <h3 className="stat-title">Active Projects</h3>
             </div>
-            <p className="stat-value">8</p>
+            <p className="stat-value">--</p>
           </motion.div>
         </div>
       </motion.div>

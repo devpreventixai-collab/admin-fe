@@ -1,0 +1,84 @@
+.companyRow:hover {
+  background-color: var(--gray-50);
+}
+
+.companyLink {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.companyLink:hover {
+  text-decoration: underline;
+}
+
+.editButton {
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+}
+
+.editButton:hover {
+  background-color: var(--gray-50);
+}
+
+.errorMessage {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--error-color);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.retryButton {
+  margin-top: 0.5rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.retryButton:hover {
+  opacity: 0.9;
+}
+
+.loadingSpinner {
+  text-align: center;
+  padding: 2rem;
+}
+
+.tableContainer {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  background-color: var(--gray-50);
+  border-bottom: 1px solid var(--border-color);
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.workTypeBadge {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: inline-block;
+}
