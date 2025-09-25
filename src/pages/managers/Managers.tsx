@@ -13,8 +13,8 @@ const { Search } = Input;
 import Typography from 'antd/es/typography';
 import 'antd/es/typography/style';
 import { SearchOutlined, PlusOutlined, EditOutlined, DeleteOutlined, UserOutlined } from '@ant-design/icons';
-import { Select } from 'antd';
-const { Option } = Select;
+import Select from 'antd/es/select';
+import 'antd/es/select/style';
 import type { TablePaginationConfig } from 'antd/es/table';
 import MainLayout from '../../components/Layout/MainLayout';
 import { getManagers, type Manager, getAllCompany } from '../../services/api';
@@ -34,7 +34,7 @@ const Managers = () => {
   });
   const [searchText, setSearchText] = useState<string>('');
   const [companies, setCompanies] = useState<Array<{ id: number; name: string }>>([]);
-  const [selectedCompanyId, setSelectedCompanyId] = useState<string | null>(null);
+  const [selectedCompanyId, setSelectedCompanyId] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     const fetchCompanies = async () => {
@@ -96,7 +96,7 @@ const Managers = () => {
     fetchManagers(1, value, selectedCompanyId ? Number(selectedCompanyId) : undefined);
   };
 
-  const handleCompanyChange = (value: string | null) => {
+  const handleCompanyChange = (value: string | undefined) => {
     setSelectedCompanyId(value);
     fetchManagers(1, searchText, value ? Number(value) : undefined);
   };
@@ -207,14 +207,12 @@ const Managers = () => {
                   value={selectedCompanyId}
                   allowClear
                   showSearch
-                  optionFilterProp="children"
-                >
-                  {companies.map(company => (
-                    <Option key={company.id} value={company.id.toString()}>
-                      {`${company.name} (ID: ${company.id})`}
-                    </Option>
-                  ))}
-                </Select>
+                  optionFilterProp="label"
+                  options={companies.map(company => ({
+                    label: `${company.name} (ID: ${company.id})`,
+                    value: company.id.toString(),
+                  }))}
+                />
               </div>
             </div>
 
