@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { type AuthResponse } from '../types';
 
-const API_URL = 'https://dev.preventixai.com/api/v1';
+const API_URL = `${import.meta.env.VITE_BACKEND_API_URL}/api/v1`;
 
 const api = axios.create({
   baseURL: API_URL,
@@ -38,8 +38,6 @@ export const addCompany = async (companyData: {
   const response = await api.post('/admin/addCompany', companyData);
   return response.data;
 };
-
-
 
 export const addManager = async (managerData: {
   email: string;
